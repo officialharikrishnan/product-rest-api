@@ -4,11 +4,10 @@ export const insertController = (dependencies) => {
   const logSchema = Joi.object({
     productName: Joi.string().required(),
     company: Joi.string().required(),
-    description:Joi.string(),
-    price:Joi.number().required(),
-    storage:Joi.string(),
-    ram:Joi.string()
-      
+    description: Joi.string(),
+    price: Joi.number().required(),
+    storage: Joi.string(),
+    ram: Joi.string(),
   });
   const {
     useCase: { insertUseCase },
@@ -20,7 +19,7 @@ export const insertController = (dependencies) => {
     } else {
       const data = await insertUseCase(dependencies).execute(value);
       if (data) {
-        res.send(data);
+        res.status(200).send(data);
       } else {
         res.send("inavlide entry");
       }
