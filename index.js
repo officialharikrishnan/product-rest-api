@@ -3,7 +3,7 @@ import { dbConnect } from './config/db.js';
 const PORT=8000
 const start = () => {
     try{
-        dbConnect()
+        // dbConnect()
     }catch(err){
         console.log("connection error",err);
     }
