@@ -3,7 +3,8 @@ export const getByIdController = (dependencies) => {
     useCase: { getByIdUseCase },
   } = dependencies;
   const getById = async (req, res) => {
-    const id = req.params.id;
+    const id = req.query.id;
+    console.log(id)
     const data = await getByIdUseCase(dependencies).execute(id);
     if (data) {
       res.status(200).send(data);

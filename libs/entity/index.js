@@ -1,3 +1,3 @@
-import { ProductEnt } from "./user/user.js";
+import { ProductEnt } from "./product/product.js";
 
 export {ProductEnt}

@@ -4,6 +4,7 @@ import { schema } from "../../database/index.js";
 const {Product} = schema
 
 export default {
+    
     insert:(data)=>{
         return Product.create(data)
     },
@@ -13,5 +14,8 @@ export default {
     getById:(data)=>{
         console.log(data);
         return Product.findOne({_id:new mongoose.Types.ObjectId(data)})
+    },
+    search:(data)=>{
+        return Product.find({$text:{$search:data,$caseSensitive: false}})
     }
 }

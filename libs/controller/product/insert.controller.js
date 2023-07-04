@@ -7,7 +7,7 @@ export const insertController = (dependencies) => {
     description: Joi.string(),
     price: Joi.number().required(),
     storage: Joi.string(),
-    ram: Joi.string(),
+    ram: Joi.string()
   });
   const {
     useCase: { insertUseCase },
@@ -17,7 +17,7 @@ export const insertController = (dependencies) => {
     if (error) {
       res.send(error.details[0].message);
     } else {
-      const data = await insertUseCase(dependencies).execute(value);
+      const data = await insertUseCase(dependencies).execute(value,req.files?.image);
       if (data) {
         res.status(200).send(data);
       } else {
