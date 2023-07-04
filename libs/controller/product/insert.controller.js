@@ -17,7 +17,8 @@ export const insertController = (dependencies) => {
     if (error) {
       res.send(error.details[0].message);
     } else {
-      const data = await insertUseCase(dependencies).execute(value,req.files?.image);
+      const file = req.files
+      const data = await insertUseCase(dependencies).execute(value,file.image);
       if (data) {
         res.status(200).send(data);
       } else {
