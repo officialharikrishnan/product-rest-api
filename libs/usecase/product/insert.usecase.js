@@ -19,7 +19,6 @@ export const insertUseCase = (dependencies) => {
     let upload = await uploadFile(params)
     data.image=imageName
     const product = new ProductEnt(data)
-    console.log(product,">>>product>>",file);
     let res = await productRepository.insert(product);
     return res;
   };

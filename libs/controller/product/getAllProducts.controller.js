@@ -12,3 +12,4 @@ export const getAllProductsController = (dependencies) => {
   };
   return getAllProduct;
 };
+ 

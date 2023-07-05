@@ -6,7 +6,6 @@ export const getAllProductUseCase = (dependencies) => {
     const execute =async () => {
         const products = await productRepository.getAll()
         for(let product of products){
-            console.log(product.image);
             const getObjectParams = {
                 Bucket:process.env.S3_NAME,
                 Key:product.image

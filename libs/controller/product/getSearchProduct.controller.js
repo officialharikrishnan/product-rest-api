@@ -3,7 +3,7 @@ export default (dependencies)=>{
         const {useCase:{getSearchProductUseCase}}=dependencies
         const data = req.query.data
         const product = await getSearchProductUseCase(dependencies).execute(data) 
-        if(product !== []){
+        if(product.length !== 0){
             res.status(200).send(product)
         }else{
             res.status(400).send("product not found")
